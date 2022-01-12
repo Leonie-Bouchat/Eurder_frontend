@@ -1,0 +1,28 @@
+<section>
+  <h3 class="section-title">Items</h3>
+  <div class="filter">
+    <label for="search-box">Item Search</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)">
+  </div>
+
+  <div class="container" *ngFor="let item of items | searchFilter:searchTerm">
+    <ul class="card-list">
+      <li class="card">
+        <div class="card-title">{{item.name}}</div>
+        <img class="card-image" src="assets/images/item-image.png" alt="item image">
+        <div class="card-footer">
+          <div>Price: &euro; {{item.price}}</div>
+          <div class="stock">
+            <span>{{this.getStockUrgency(item.amountOfStock)}}`</span>
+            <img class="icon" src="assets/images/warning-icon.png" alt="warning">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <button routerLink="/items/create">Create Item</button>
+  </div>
+
+</section>

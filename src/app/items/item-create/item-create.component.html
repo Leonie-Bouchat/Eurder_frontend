@@ -1,0 +1,25 @@
+<section>
+  <h3 class="section-title">Items</h3>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="createItemForm">
+    <div>
+      <label for="fieldName">Name:</label>
+      <input type="text" formControlName="name" id="fieldName">
+    </div>
+    <div>
+      <label for="fieldDescription">Description:</label>
+      <input type="text" formControlName="description" id="fieldDescription">
+    </div>
+    <div>
+      <label for="fieldPrice">Price:</label>
+      <input type=number formControlName="price" id="fieldPrice">
+    </div>
+    <div>
+      <label for="fieldAmount">Amount of stock:</label>
+      <input type=number formControlName="amountOfStock" id="fieldAmount">
+    </div>
+
+    <button type="submit" [disabled]="!createItemForm.valid">Create</button>
+    <button type="reset" routerLink="/items">Cancel</button>
+  </form>
+</section>
