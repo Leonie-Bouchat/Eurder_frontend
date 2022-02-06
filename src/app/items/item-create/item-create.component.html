@@ -3,12 +3,14 @@
 
   <form (ngSubmit)="onSubmit()" [formGroup]="createItemForm">
     <div>
-      <label for="fieldName">Name:</label>
-      <input type="text" formControlName="name" id="fieldName">
+      <label for="name">Name:</label>
+      <input type="text" name="name" formControlName="name" id="name">
     </div>
     <div>
       <label for="fieldDescription">Description:</label>
-      <input type="text" formControlName="description" id="fieldDescription">
+      <textarea name="textarea" cols="50" rows="10" #descriptionLength formControlName="description" id="fieldDescription"></textarea>
+      <span class="counter" >{{225- descriptionLength.value.length}} / 225</span>
+      <app-counter></app-counter>
     </div>
     <div>
       <label for="fieldPrice">Price:</label>
@@ -21,5 +23,22 @@
 
     <button type="submit" [disabled]="!createItemForm.valid">Create</button>
     <button type="reset" routerLink="/items">Cancel</button>
+
+    <p>{{name.errors}}</p>
+    <div>
+      <div *ngIf="itemFormControls['name'].errors?.['minlength']">
+        <p class="invalid-message">The name must be at least 3 characters long.</p>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="name.errors?.['required'] && !name.pristine">
+        <p class="invalid-message">The name is required to be filled in.</p>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="description.errors?.['maxlength']">
+        <p class="invalid-message">The message is too long</p>
+      </div>
+    </div>
   </form>
 </section>

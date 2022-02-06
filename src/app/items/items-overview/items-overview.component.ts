@@ -31,4 +31,6 @@ export class ItemsOverviewComponent implements OnInit {
   search(term: string): void {
     this.searchTerm = term;
   }
+
+
 }

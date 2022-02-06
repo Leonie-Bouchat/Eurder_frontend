@@ -1,1 +1,32 @@
-<p>item works!</p>
+<div *ngIf="item$ | async as itemData; else loading">
+  <div>
+    <p>Id:</p>
+    <p>{{itemData.id}}</p>
+  </div>
+
+  <div>
+    <p>Name:</p>
+    <p>{{itemData.name}}</p>
+  </div>
+
+  <div>
+    <p>Description:</p>
+    <p>{{itemData.description}}</p>
+  </div>
+
+  <div>
+    <p>Price:</p>
+    <p>{{itemData.price}}</p>
+  </div>
+
+  <div>
+    <p>Amount of stock:</p>
+    <p>{{itemData.amountOfStock}}</p>
+  </div>
+
+  <button [routerLink]=" '/items/' + itemData.id + '/edit'">Edit</button>
+  <button routerLink="/items">Back</button>
+</div>
+<ng-template #loading>
+  Loading data...
+</ng-template>

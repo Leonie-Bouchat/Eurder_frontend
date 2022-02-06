@@ -1,0 +1,6 @@
+<section *ngIf="alertMessages$ | async as alertMessage">
+  <div role="alert" [ngClass]="alertMessage.type === 'SUCCESS' ? 'alert-success': 'alert-danger'">
+    <strong>{{alertMessage.title | titlecase}}</strong>: {{alertMessage.description}}
+    <button type="button" class="btn-close"></button>
+  </div>
+</section>

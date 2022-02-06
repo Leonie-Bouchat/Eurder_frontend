@@ -8,8 +8,8 @@
   <div class="container" *ngFor="let item of items | searchFilter:searchTerm">
     <ul class="card-list">
       <li class="card">
-        <div class="card-title">{{item.name}}</div>
-        <img class="card-image" src="assets/images/item-image.png" alt="item image">
+        <a [routerLink]="'/items/' + item.id"><div class="card-title">{{item.name}}</div></a>
+        <a [routerLink]="'/items/' + item.id"><img class="card-image" src="assets/images/item-image.png" alt="item image"></a>
         <div class="card-footer">
           <div>Price: &euro; {{item.price}}</div>
           <div class="stock">
@@ -20,7 +20,6 @@
       </li>
     </ul>
   </div>
-
   <div>
     <button routerLink="/items/create">Create Item</button>
   </div>

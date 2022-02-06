@@ -28,6 +28,13 @@ export class ItemService {
 
   createItem(item: Item): Observable<Item> {
     return this.http.post<Item>(this.url, item)
+  }
 
+  getItem(id: string | null): Observable<Item> {
+    return this.http.get<Item>(`${this.url}/${id}`);
+  }
+
+  saveItem(id: string, value: any): Observable<void> {
+    return this.http.put<void>(`${this.url}/${id}`, value);
   }
 }

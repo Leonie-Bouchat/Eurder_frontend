@@ -6,6 +6,9 @@ import { ItemCreateComponent } from './item-create/item-create.component';
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ItemComponent } from './item/item.component';
+import {SharedModule} from "../shared/shared.module";
+import {LayoutModule} from "../layout/layout.module";
+import { ItemEditComponent } from './item-edit/item-edit.component';
 
 
 
@@ -14,12 +17,15 @@ import { ItemComponent } from './item/item.component';
     ItemsOverviewComponent,
     SearchFilterPipe,
     ItemCreateComponent,
-    ItemComponent
+    ItemComponent,
+    ItemEditComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        ReactiveFormsModule,
+        SharedModule,
+        LayoutModule
+    ]
 })
 export class ItemsModule { }

@@ -9,6 +9,7 @@ import {ItemsModule} from "./items/items.module";
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import {ReactiveFormsModule} from "@angular/forms";
 import {CustomersModule} from "./customers/customers.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {CustomersModule} from "./customers/customers.module";
     HttpClientModule,
     ItemsModule,
     ReactiveFormsModule,
-    CustomersModule
+    CustomersModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
