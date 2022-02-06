@@ -1,0 +1,16 @@
+<div>
+  <form *ngIf="item$ | async; else loading" [formGroup]="itemForm" (ngSubmit)="save(itemForm.value)">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input id="description" type="text" formControlName="description">
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</div>
+<ng-template #loading>
+  Loading data...
+</ng-template>
